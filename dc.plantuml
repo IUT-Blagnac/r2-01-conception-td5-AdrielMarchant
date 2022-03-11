@@ -1,0 +1,32 @@
+@startuml Class
+class Chantier{
+    String date_de_depart
+    String date_de_fin
+    String adresse
+}
+
+class Employé{
+    Artisan typeArtisan
+    float horaire
+    String coordonées
+
+
+}
+
+Employé "*"--"0..*" Chantier
+(Employé,Chantier) .. Salaire
+
+class Salaire{
+    float Nombre_heures_effectué
+    float Salaire_cumulé
+    calculSalaire()
+}
+
+
+
+
+
+
+
+
+@enduml
