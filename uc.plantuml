@@ -1,0 +1,34 @@
+@startuml Usecase
+left to right direction
+:Entreprise: as entreprise
+:Artisan: as artisan 
+rectangle Chantier {
+    usecase "Participer au chantier" as pac
+    usecase "Nombre d'heures efféctuées" as nbrH
+    usecase "Salaire calculé" as salaire
+
+  usecase "Gerer le chantier" AS uc1
+  usecase "Date de debut" as ddd
+  usecase "Date de fin" as ddf 
+  usecase "Adresse" as adr
+
+  usecase "Gerer ses artisans" AS uc2
+  usecase "Salaire horaires" as Sh 
+  usecase "Coordonnées" as coo
+
+
+}
+artisan -- pac
+pac <.. nbrH : extends
+nbrH <-- salaire : include
+salaire -- artisan
+Sh --> salaire : include
+entreprise --> uc1 
+entreprise --> uc2
+uc1 <.. ddd : extends
+uc1 <.. ddf : extends
+uc1 <.. adr : extends
+
+uc2 <.. Sh : extends
+uc2 <.. coo : extends
+@enduml
